@@ -11,30 +11,70 @@
         <div class="container">
             <img src="speechsounds-clear.png" alt="Speech Sounds Logo - Wavy lines in blue, yellow, and green representing sound waves" class="logo">
             
-            <h1>Coming Soon: Speech Sounds</h1>
-            <p class="tagline">An innovative communication system for people with disabilities using phonemes</p>
-            
-            <div class="demo-link">
-                <a href="http://ipachat.acecentre.net" class="button">Try the Demo</a>
+            <div class="hero-content">
+                <h1>Reimagining Communication Through Sound</h1>
+                <p class="tagline">An innovative system empowering people with disabilities to communicate naturally using phonemes</p>
+                
+                <div class="demo-link">
+                    <a href="http://ipachat.acecentre.net" class="button">Try the Demo →</a>
+                </div>
             </div>
 
             <div class="signup-form">
-                <h2>Stay Updated</h2>
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLScslnONe7ogAEpg0V3dD91TGGBUR6abweNRgiYULZgOwEwQ9w/viewform?usp=dialog"
-                    width="100%" 
-                    height="250" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0">
-                    Loading…
-                </iframe>
+                <h2>Be Part of the Journey</h2>
+                <form id="subscribe-form" onsubmit="handleSubmit(event)">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                        <button type="submit" id="submit-button">Notify Me</button>
+                    </div>
+                    <div class="consent-text">
+                        <small>By subscribing, you agree to receive Speech Sounds updates. You can unsubscribe at any time.</small>
+                    </div>
+                </form>
+                <div id="thanks" class="thanks hidden">
+                    <p>Thank you for your interest! We'll keep you updated.</p>
+                </div>
             </div>
 
             <footer>
-                <p>A project by Andrea Lee and Will Wade</p>
+                <p>A project by Andrea Lee and Will Wade • © 2024 Speech Sounds</p>
             </footer>
         </div>
     </main>
+
+    <script>
+    async function handleSubmit(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const button = document.getElementById('submit-button');
+        const form = document.getElementById('subscribe-form');
+        const thanks = document.getElementById('thanks');
+        
+        button.disabled = true;
+        button.textContent = 'Sending...';
+
+        try {
+            const response = await fetch('/.netlify/functions/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            if (!response.ok) throw new Error('Subscription failed');
+            
+            form.classList.add('hidden');
+            thanks.classList.remove('hidden');
+        } catch (error) {
+            console.error('Error:', error);
+            button.textContent = 'Try Again';
+            alert('Sorry, something went wrong. Please try again.');
+        } finally {
+            button.disabled = false;
+        }
+    }
+    </script>
 </body>
 </html> 
