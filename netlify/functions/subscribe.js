@@ -3,7 +3,7 @@ const MailerLite = require('@mailerlite/mailerlite-nodejs').default;
 exports.handler = async function(event, context) {
     // Enable CORS
     const headers = {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'http://localhost:8888',
         'Access-Control-Allow-Headers': 'Content-Type',
     };
 
