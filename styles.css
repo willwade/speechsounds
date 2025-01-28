@@ -4,7 +4,10 @@
     --accent-yellow: #FFD100;
     --accent-green: #7AB800;
     --light-gray: #F8F9FA;
-    --text-gray: #4A4A4A;
+    --text-gray: #333333;
+    --background-purple: rgb(194, 163, 220);
+    --primary-black: #000000;
+    --white: #FFFFFF;
 }
 
 * {
@@ -16,69 +19,71 @@
 body {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    background-color: white;
+    background-color: var(--background-purple);
     color: var(--text-gray);
     min-height: 100vh;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 4rem 2rem;
-    text-align: left;
+    padding: 2rem 2rem;
+    text-align: center;
 }
 
 .logo {
-    max-width: 500px;
+    max-width: 400px;
     height: auto;
-    margin: 2rem 0 4rem 0;
+    margin: 1rem 0 2rem 0;
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-blue);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-black);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
 }
 
 .tagline {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
     color: var(--text-gray);
     max-width: 600px;
     line-height: 1.4;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .demo-link {
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .button {
     display: inline-block;
     padding: 1.2rem 2.5rem;
-    background-color: var(--accent-blue);
-    color: white;
+    background-color: var(--primary-black);
+    color: var(--white);
     text-decoration: none;
     border-radius: 12px;
     transition: all 0.3s ease;
     font-size: 1.1rem;
     font-weight: 500;
-    box-shadow: 0 4px 20px rgba(0, 167, 225, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
-    background-color: var(--primary-blue);
+    background-color: #333;
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 59, 92, 0.2);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .signup-form {
     max-width: 600px;
-    margin: 4rem 0;
-    padding: 2.5rem;
-    background: var(--light-gray);
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--white);
     border-radius: 20px;
     box-shadow: 0 2px 40px rgba(0, 0, 0, 0.03);
     overflow: hidden;
@@ -86,7 +91,7 @@ h1 {
 
 .signup-form h2 {
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--primary-blue);
     font-weight: 600;
 }
@@ -179,11 +184,11 @@ footer {
     }
     
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .tagline {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
     
     .input-group {
@@ -222,4 +227,89 @@ footer {
     width: 100%;
     height: 200px;
     border: none;
+}
+
+/* Add new styles for video section and partners */
+.video-section {
+    max-width: 800px;
+    margin: 3rem auto;
+}
+
+.video-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.partners {
+    margin: 3rem auto;
+}
+
+.partners h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.partner-logo {
+    max-width: 180px;
+    height: auto;
+    filter: brightness(0);
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: brightness(1);
+    transform: translateY(-2px);
+}
+
+/* Specific logo adjustments */
+.nhs-logo {
+    max-width: 220px;
+}
+
+.ace-logo {
+    max-width: 160px;
+}
+
+.dundee-logo {
+    max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .partner-logos {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .partner-logo {
+        max-width: 140px;
+    }
 } 
