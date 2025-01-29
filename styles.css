@@ -33,8 +33,10 @@ body {
 
 .logo {
     max-width: 400px;
+    width: 100%;
     height: auto;
-    margin: 1rem 0 2rem 0;
+    margin: 1rem auto 2rem auto;
+    display: block;
 }
 
 h1 {
@@ -180,7 +182,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 2rem 1.5rem;
+        padding: 1rem;
     }
     
     h1 {
@@ -201,6 +203,18 @@ footer {
     
     .signup-form {
         padding: 1.5rem;
+    }
+    
+    .logo {
+        max-width: 280px;
+        padding: 0 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .logo {
+        max-width: 240px;
     }
 }
 
