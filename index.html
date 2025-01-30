@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soundscape - Innovative Communication Through Sound</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,8 +16,12 @@
                 <h1>Reimagining Communication Through Sound</h1>
                 <p class="tagline">An innovative system empowering people with disabilities to communicate naturally using sound patterns</p>
                 
-                <div class="demo-link">
-                    <a href="http://ipachat.soundscape.chat" class="button">Try the Demo →</a>
+                <div class="demo-buttons">
+                    <a href="http://ipachat.soundscape.chat" class="button primary-button">Try the Demo →</a>
+                    <button onclick="openModal()" class="button secondary-button">
+                        <img src="assets/jabbla.png" alt="" class="button-logo">
+                        Try in MindExpress
+                    </button>
                 </div>
             </div>
 
@@ -24,7 +29,7 @@
                 <h2>See Soundscape in Action</h2>
                 <div class="video-container">
                     <iframe 
-                        src="https://www.youtube.com/embed/videoseries?list=PLG22wrzFpavZ4fRZGeldTgz45wP4oXs70" 
+                        src="https://www.youtube-nocookie.com/embed/videoseries?list=PLG22wrzFpavZ4fRZGeldTgz45wP4oXs70" 
                         title="Soundscape Demo Videos"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -76,6 +81,39 @@
         </div>
     </main>
 
+    <div id="mindExpressModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <h2>Use Soundscape with MindExpress</h2>
+            <div class="modal-body">
+                <p>Download these files and import them into MindExpress to use Soundscape:</p>
+                <div class="download-files">
+                    <a href="/assets/SAMPAchatv5.ME5" class="file-button">
+                        <svg class="file-icon" viewBox="0 0 24 24">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                        Download Demo 1
+                    </a>
+                    <a href="/assets/SAMPAchatv5_Sclera.ME5" class="file-button">
+                        <svg class="file-icon" viewBox="0 0 24 24">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                        Download Demo 2 (with Sclera symbols
+                    </a>
+                </div>
+                <div class="instructions">
+                    <h3>Instructions:</h3>
+                    <ol>
+                        <li>Download and install <a href="https://www.jabbla.com/mind-express/" target="_blank">MindExpress</a></li>
+                        <li>Open MindExpress on your device</li>
+                        <li>Import the downloaded ME files</li>
+                        <li>Start using Soundscape with MindExpress!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
     async function handleSubmit(event) {
         event.preventDefault();
@@ -107,6 +145,24 @@
             alert('Sorry, something went wrong. Please try again.');
         } finally {
             button.disabled = false;
+        }
+    }
+
+    function openModal() {
+        document.getElementById('mindExpressModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('mindExpressModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('mindExpressModal');
+        if (event.target === modal) {
+            closeModal();
         }
     }
     </script>
