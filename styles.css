@@ -276,12 +276,16 @@ footer {
 /* Add new styles for video section and partners */
 .video-section {
     max-width: 800px;
-    margin: 3rem auto;
+    margin: 4rem auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
 }
 
 .video-section h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    color: var(--primary-black);
 }
 
 .video-container {
@@ -461,4 +465,12 @@ footer {
 .instructions a {
     color: var(--accent-blue);
     text-decoration: underline;
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+    .video-section {
+        margin: 2rem auto;
+        padding: 1rem;
+    }
 } 
